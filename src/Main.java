@@ -2,14 +2,81 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("Задача 1");
+        int firstFriday = 2;
+        for (; firstFriday <= 31; firstFriday = firstFriday + 7) {
+            System.out.println("Сегодня пятница, " + firstFriday + "-е число. Необходимо подготовить отчет.");
         }
+        System.out.println("Задача 2.1");
+        int runningDistance = 0;
+        int totalDistance = 42195;
+        do {
+            System.out.println("Держитесь! Осталось " + (totalDistance - runningDistance) + " метров!");
+            runningDistance = runningDistance + 500;
+        }
+        while (runningDistance <= totalDistance);
+        System.out.println("Задача 2.2");
+        for (int runDistance = 0; runDistance <= 42195; runDistance = runDistance + 500) {
+            System.out.println("Держитесь! Осталось " + (42195 - runDistance) + " метров!");
+        }
+        System.out.println("Задача 3.1");
+        int budget = 1000;
+        int day = 0;
+        while (budget > 0) {
+            day++;
+            budget = budget - 100;
+            if (day % 5 == 0) {
+                System.out.println(day + " день. Каждый 5 день парковка бесплатная!");
+                continue;
+            }
+            System.out.println(day + " день парковки. На счету осталось " + budget + " рублей.");
+        }
+        System.out.println("Задача 3.2");
+        int numberOfMoney = 2000;
+        int numberOfDays = 0;
+        for (; numberOfMoney <= 0; numberOfMoney = numberOfMoney - 100) {
+            numberOfDays++;
+            if (numberOfDays % 5 == 0) {
+                System.out.println(numberOfDays + " день. Каждый 5 день парковка бесплатная!");
+                continue;
+            }
+            System.out.println(numberOfDays + " день парковки. На счету осталось " + numberOfDays + " рублей.");
+        }
+        System.out.println("Задача 4");
+        int month = 0;
+        int total = 0;
+        while (true) {
+            month++;
+            total = total + 15000;
+            if (month % 6 == 0) {
+                total = total + (total * 7 / 100);
+                System.out.println("Накопленная сумма за " + month + " месяцев равна " + total + " рублей, с учетом выплаченных 7%.");
+            }
+            if (total >= 12_000_000) {
+                System.out.println("Цель достигнута! Вы накопили " + total + " за " + month + " месяцев.");
+                break;
+            }
+            System.out.println("За " + month + " месяцев вы накопили " + total + " рублей.");
+        }
+        System.out.println("Задача 5");
+        int charge = 20;
+        int minute = 0;
+        int overheats = 0;
+        while (charge <= 100) {
+            minute++;
+            charge = charge + 2;
+            if (minute % 10 == 0) {
+                overheats = overheats + 2;
+                minute = minute + 2;
+                charge = charge + 0;
+                System.out.println("Перегрев! Заряд устройства продолжится через 2 минуты.");
+                continue;
+            }
+            if (overheats >= 3) {
+                System.out.println("Устройство перегрелось! Заряд завершен.");
+                break;
+            }
+        }
+        System.out.println("Время зарядки составило " + minute + " минут на " + charge + "%.");
     }
 }
