@@ -66,7 +66,7 @@ public class Main {
                 System.out.println("Устройство перегрелось! Заряд завершен.");
                 break;
             }
-                minute++;
+            minute++;
             if (minute % 10 == 0) {
                 overheats = overheats + 1;
                 minute = minute + 2;
@@ -76,7 +76,6 @@ public class Main {
             charge = charge + 2;
         }
         System.out.println("Время зарядки составило " + minute + " минут на " + charge + "%.");
-
     }
 
 }
