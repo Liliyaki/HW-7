@@ -24,23 +24,22 @@ public class Main {
         int day = 0;
         while (budget > 0) {
             day++;
-            budget = budget - 100;
             if (day % 5 == 0) {
                 System.out.println(day + " день. Каждый 5 день парковка бесплатная!");
                 continue;
             }
+            budget = budget - 100;
             System.out.println(day + " день парковки. На счету осталось " + budget + " рублей.");
         }
         System.out.println("Задача 3.2");
-        int numberOfMoney = 2000;
-        int numberOfDays = 0;
-        for (; numberOfMoney <= 0; numberOfMoney = numberOfMoney - 100) {
-            numberOfDays++;
+        int numberOfDays = 1;
+        for (int money = 2000; money > 0; numberOfDays++) {
             if (numberOfDays % 5 == 0) {
                 System.out.println(numberOfDays + " день. Каждый 5 день парковка бесплатная!");
                 continue;
             }
-            System.out.println(numberOfDays + " день парковки. На счету осталось " + numberOfDays + " рублей.");
+            money = money - 100;
+            System.out.println(numberOfDays + " день парковки. На счету осталось " + money + " рублей.");
         }
         System.out.println("Задача 4");
         int month = 0;
@@ -63,20 +62,21 @@ public class Main {
         int minute = 0;
         int overheats = 0;
         while (charge <= 100) {
-            minute++;
-            charge = charge + 2;
-            if (minute % 10 == 0) {
-                overheats = overheats + 2;
-                minute = minute + 2;
-                charge = charge + 0;
-                System.out.println("Перегрев! Заряд устройства продолжится через 2 минуты.");
-                continue;
-            }
             if (overheats >= 3) {
                 System.out.println("Устройство перегрелось! Заряд завершен.");
                 break;
             }
+                minute++;
+            if (minute % 10 == 0) {
+                overheats = overheats + 1;
+                minute = minute + 2;
+                System.out.println("Перегрев! Заряд устройства продолжится через 2 минуты.");
+                continue;
+            }
+            charge = charge + 2;
         }
         System.out.println("Время зарядки составило " + minute + " минут на " + charge + "%.");
+
     }
+
 }
